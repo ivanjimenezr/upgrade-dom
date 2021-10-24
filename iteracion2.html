@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 class="fn-insert-here"></h2>
+	<p class="fn-remove-me">Eliminame!</p>
+    <p>No me elimines!</p>
+    <p>No me elimines!</p>
+    <p class="fn-remove-me">Eliminame!</p>
+    <p>No me elimines!</p>
+    <p class="fn-remove-me">Eliminame!</p>
+    <p class="fn-remove-me">Eliminame!</p>
+    <p>No me elimines!</p>
+    <div></div><div></div>
+    <div class="fn-insert-here"></div>
+    <div class="fn-insert-here"></div>
+	
+
+  <script>
+    window.onload = function() {
+        // init listeners
+        //addListeners();
+    
+        // init content
+        addElement();
+    }
+
+    function addElement() {
+        
+        let newP = document.createElement('p');
+        
+        //2.1 Inserta dinamicamente en un html un div vacio con javascript.
+        let newDiv1 = document.createElement('div');
+        document.body.appendChild(newDiv1);
+        
+        //2.2 Inserta dinamicamente en un html un div que contenga una p con javascript.
+        let newDiv2 = document.createElement('div');
+        document.body.appendChild(newDiv2);
+        newDiv2.appendChild(newP);
+        
+        //2.3 Inserta dinamicamente en un html un div que contenga 6 p utilizando un loop con javascript.
+        let newDiv3 = document.createElement('div');
+        document.body.appendChild(newDiv3);
+        for (var x = 0; x < 6; x++){
+            newP = document.createElement('p');
+            newDiv3.appendChild(newP); 
+        }
+        
+        
+        //2.4 Inserta dinamicamente con javascript en un html una p con el texto 'Soy dinámico!'.
+        let newDiv4 = document.createElement('div');
+        document.body.appendChild(newDiv4);
+        newDiv4.id = 'nuevoP';
+        document.getElementById("nuevoP").innerHTML = "Soy dinámico!"
+        newDiv4.appendChild(newP);
+        
+        //2.5 Inserta en el h2 con la clase .fn-insert-here el texto 'Wubba Lubba dub dub'.
+        document.querySelector("h2.fn-insert-here").innerHTML = "Wubba Lubba dub dub"
+
+        //2.6 Basandote en el siguiente array crea una lista ul > li con los textos del array.
+        let newUL1 = document.createElement('ul');
+        let newLI1 = document.createElement('li');
+        const apps = ['Facebook', 'Netflix', 'Instagram', 'Snapchat', 'Twitter'];
+        for (value of apps){
+            newLI1 = document.createElement('li');
+            newUL1.appendChild(newLI1); 
+            newLI1.innerHTML = value
+        
+        }
+        document.body.appendChild(newUL1);
+        
+        //2.7 Elimina todos los nodos que tengan la clase .fn-remove-me
+        let paras = document.querySelectorAll('.fn-remove-me');
+        for (value of paras){
+            value.parentNode.removeChild(value);
+        }
+
+        //2.8 Inserta una p con el texto 'Voy en medio!' entre los dos div. Recuerda que no solo puedes insertar elementos con .appendChild.
+        let divs = document.querySelectorAll('div'); // buscamos todos los divs del documento
+        let textInside = document.createTextNode('Voy en medio!') // creamos una variable con un texto
+        for (let index = 0; index = 1 ; index++) { // buscamos por los divs que hemos encontrado, (variable divs), hasta el segundo que es el q buscamos
+            newP = document.createElement('p'); // creamos el elemento del "p"
+            newP.appendChild(textInside); // metemos delntro del elemento "newP" (p) el texto metido en la variable "textInside"
+            document.body.insertBefore(newP,divs[index]); //insertamos antes del segundo div encontrado (divs[index]) el p (newP) que viene con el texto ya insertado 
+            break
+            }
+
+        //2.9 Inserta p con el texto 'Voy dentro!', dentro de todos los div con la clase .fn-insert-here
+        const text = document.querySelectorAll("div.fn-insert-here");// buscamos todos los elementos del documento con la clase ".fn-insert-here"
+        newP = document.createElement('p'); // creamos el elemento del "p"
+        text.forEach(element => element.innerHTML += '<p>Voy dentro!</p>'); // recorremos todos los elementos e insertamos el p con el texto
+        text.forEach
+        
+        
+
+        
+    }
+</script>
+</body>
+</html>
